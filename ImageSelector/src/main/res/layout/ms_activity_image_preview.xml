@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/ms_photo_picker_title_bar" />
+
+    <com.sinothk.image.selector.widget.ViewPagerFixed
+        android:id="@+id/vp_photos"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FF2B2B2B" />
+
+</LinearLayout>
