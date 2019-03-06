@@ -1,23 +1,33 @@
 package com.sinothk.image.selector.demo;
 
-import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.LayoutRes;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.sinothk.image.selector.PhotoPickerActivity;
 import com.sinothk.image.selector.SelectModel;
 import com.sinothk.image.selector.intent.PhotoPickerIntent;
+import com.sinothk.image.show.AppNineGridAdapter;
+import com.sinothk.image.show.NineGridAdapter;
+import com.sinothk.image.show.NineGridView;
 
+import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ImageSelectorDemoMainActivity extends AppCompatActivity {
     int REQUEST_SINGLE_CODE = 1;// 从相册选择
     int REQUEST_MUTILATE_CODE = 2;// 从相册选择
 
     TextView result1, result2;
+    NineGridAdapter nineGridAdapter;
+    NineGridView nineGridView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +61,8 @@ public class ImageSelectorDemoMainActivity extends AppCompatActivity {
                 startActivityForResult(intent, REQUEST_MUTILATE_CODE);
             }
         });
+
+        nineGridView = findViewById(R.id.nine_grid_view);
     }
 
     ArrayList<String> path = new ArrayList<>();
@@ -71,13 +83,9 @@ public class ImageSelectorDemoMainActivity extends AppCompatActivity {
                 }
             } else if (requestCode == REQUEST_MUTILATE_CODE) {
                 path = data.getStringArrayListExtra(PhotoPickerActivity.EXTRA_RESULT);
-                if (path != null) {
-                    StringBuilder s = new StringBuilder();
-                    for (int i = 0; i < path.size(); i++) {
-                        s.append(path.get(i)).append(";");
-                    }
-                    result2.setText(s.toString());
-                }
+
+                nineGridAdapter = new AppNineGridAdapter(ImageSelectorDemoMainActivity.this, path);
+                nineGridView.setNineGridAdapter(nineGridAdapter);
             }
         }
     }
