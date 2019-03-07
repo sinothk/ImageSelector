@@ -1,15 +1,11 @@
 package com.sinothk.image.selector.demo;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.LayoutRes;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.sinothk.image.selector.PhotoPickerActivity;
 import com.sinothk.image.selector.SelectModel;
 import com.sinothk.image.selector.intent.PhotoPickerIntent;
@@ -17,9 +13,7 @@ import com.sinothk.image.show.AppNineGridAdapter;
 import com.sinothk.image.show.NineGridAdapter;
 import com.sinothk.image.show.NineGridView;
 
-import java.io.File;
 import java.util.ArrayList;
-import java.util.List;
 
 public class ImageSelectorDemoMainActivity extends AppCompatActivity {
     int REQUEST_SINGLE_CODE = 1;// 从相册选择
