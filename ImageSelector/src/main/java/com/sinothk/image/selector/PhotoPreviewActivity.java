@@ -1,5 +1,6 @@
 package com.sinothk.image.selector;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -40,6 +41,13 @@ public class PhotoPreviewActivity extends AppCompatActivity implements PhotoPage
     private ViewPagerFixed mViewPager;
     private PhotoPagerAdapter mPagerAdapter;
     private int currentItem = 0;
+
+    public static void start(Activity mActivity, int position, ArrayList<String> urlOrFilePathList, int requestPreview) {
+        Intent intent = new Intent(mActivity, PhotoPreviewActivity.class);
+        intent.putExtra(EXTRA_CURRENT_ITEM, position);
+        intent.putStringArrayListExtra(EXTRA_PHOTOS, urlOrFilePathList);
+        mActivity.startActivityForResult(intent, requestPreview);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -7,10 +7,10 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.sinothk.image.selector.PhotoPickerActivity;
+import com.sinothk.image.selector.PhotoPreviewActivity;
 import com.sinothk.image.selector.SelectModel;
 import com.sinothk.image.selector.intent.PhotoPickerIntent;
 import com.sinothk.image.show.AppNineGridAdapter;
-import com.sinothk.image.show.NineGridAdapter;
 import com.sinothk.image.show.NineGridView;
 
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ public class ImageSelectorDemoMainActivity extends AppCompatActivity {
     int REQUEST_MUTILATE_CODE = 2;// 从相册选择
 
     TextView result1, result2;
-    NineGridAdapter nineGridAdapter;
+    AppNineGridAdapter nineGridAdapter;
     NineGridView nineGridView;
 
     @Override
@@ -80,6 +80,14 @@ public class ImageSelectorDemoMainActivity extends AppCompatActivity {
 
                 nineGridAdapter = new AppNineGridAdapter(ImageSelectorDemoMainActivity.this, path);
                 nineGridView.setNineGridAdapter(nineGridAdapter);
+
+                nineGridAdapter.setOnItemClickListener(new AppNineGridAdapter.OnItemClickListener() {
+                    @Override
+                    public void OnItemClick(int position, ArrayList<String> urlOrFilePathList) {
+                        PhotoPreviewActivity.start(ImageSelectorDemoMainActivity.this, position, urlOrFilePathList, PhotoPreviewActivity.REQUEST_PREVIEW);
+
+                    }
+                });
             }
         }
     }

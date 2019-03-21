@@ -22,10 +22,11 @@ import java.util.List;
  */
 public class AppNineGridAdapter extends NineGridAdapter<String> {
 
-    private List<String> imageList;
+    private ArrayList<String> imageList;
     private Context context;
+    private OnItemClickListener itemClickListener;
 
-    public AppNineGridAdapter(Context context, List<String> imageList) {
+    public AppNineGridAdapter(Context context, ArrayList<String> imageList) {
         this.imageList = imageList;
         this.context = context;
     }
@@ -45,9 +46,18 @@ public class AppNineGridAdapter extends NineGridAdapter<String> {
     }
 
     @Override
-    public void onBindItemView(int position, View view) {
+    public void onBindItemView(final int position, View view) {
         ImageView imageView = (ImageView) view.findViewById(R.id.image_view);
         Glide.with(context).load(new File(getItem(position))).placeholder(R.color.colorAccent).into(imageView);
+
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (itemClickListener != null) {
+                    itemClickListener.OnItemClick(position, imageList);
+                }
+            }
+        });
     }
 
     @Override
@@ -60,5 +70,13 @@ public class AppNineGridAdapter extends NineGridAdapter<String> {
         imageList.clear();
         imageList.addAll(path);
 
+    }
+
+    public void setOnItemClickListener(OnItemClickListener itemClickListener) {
+        this.itemClickListener = itemClickListener;
+    }
+
+    public interface OnItemClickListener {
+        void OnItemClick(int position, ArrayList<String> urlOrFilePathList);
     }
 }
