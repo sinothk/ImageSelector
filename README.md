@@ -38,7 +38,7 @@
 
         startActivityForResult(intent, REQUEST_MUTILATE_CODE);
         
-    返回：
+    返回：onActivityResult(int requestCode, int resultCode, Intent data)
         if (resultCode == RESULT_OK) {
             //图片选择返回
             if (requestCode == REQUEST_SINGLE_CODE) {
