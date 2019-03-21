@@ -13,7 +13,7 @@
   ## Step 2. Add the dependency
 
     dependencies {
-            implementation 'com.github.sinothk:ImageSelector:2.1.0321'
+            implementation 'com.github.sinothk:ImageSelector:2.2.0323'
     }
 
 # 使用
@@ -59,6 +59,8 @@
                 nineGridAdapter.setOnItemClickListener(new AppNineGridAdapter.OnItemClickListener() {
                     @Override
                     public void OnItemClick(int position, ArrayList<String> urlOrFilePathList) {
+                         PhotoPreviewActivity.start(ImageSelectorDemoMainActivity.this, position, urlOrFilePathList); // 不要预览删除
+                    
                         PhotoPreviewActivity.start(ImageSelectorDemoMainActivity.this, position, urlOrFilePathList, PhotoPreviewActivity.REQUEST_PREVIEW);
 
                     }
