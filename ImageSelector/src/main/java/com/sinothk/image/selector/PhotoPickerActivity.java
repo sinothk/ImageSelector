@@ -24,6 +24,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.sinothk.comm.utils.StatusBarUtil;
 import com.sinothk.image.selector.intent.PhotoPreviewIntent;
 
 import java.io.File;
@@ -108,6 +109,7 @@ public class PhotoPickerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ms_activity_photopicker);
+        StatusBarUtil.transparencyBar(this);
 
         initViews();
 

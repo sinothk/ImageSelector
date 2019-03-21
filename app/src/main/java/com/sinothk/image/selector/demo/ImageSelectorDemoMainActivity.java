@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
+import com.sinothk.comm.utils.StatusBarUtil;
 import com.sinothk.image.selector.PhotoPickerActivity;
 import com.sinothk.image.selector.PhotoPreviewActivity;
 import com.sinothk.image.selector.SelectModel;
@@ -27,6 +28,7 @@ public class ImageSelectorDemoMainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_image_selector_demo);
+        StatusBarUtil.transparencyBar(this);
 
         result1 = (TextView) findViewById(R.id.result1);
         result2 = (TextView) findViewById(R.id.result2);
@@ -84,7 +86,7 @@ public class ImageSelectorDemoMainActivity extends AppCompatActivity {
                 nineGridAdapter.setOnItemClickListener(new AppNineGridAdapter.OnItemClickListener() {
                     @Override
                     public void OnItemClick(int position, ArrayList<String> urlOrFilePathList) {
-                        PhotoPreviewActivity.start(ImageSelectorDemoMainActivity.this, position, urlOrFilePathList, PhotoPreviewActivity.REQUEST_PREVIEW);
+                        PhotoPreviewActivity.start(ImageSelectorDemoMainActivity.this, position, urlOrFilePathList);
 
                     }
                 });
