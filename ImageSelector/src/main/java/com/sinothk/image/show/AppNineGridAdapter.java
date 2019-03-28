@@ -10,7 +10,6 @@ import com.sinothk.image.selector.R;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * <pre>

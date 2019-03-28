@@ -13,6 +13,7 @@
     <permission
         android:name="${applicationId}.ACCESS_UPDATE_RESULT"
         android:protectionLevel="signature" />
+
     <uses-permission android:name="${applicationId}.ACCESS_UPDATE_RESULT" />
 
     <uses-feature android:name="android.hardware.camera" />
@@ -26,7 +27,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme4ImageSelector"
         tools:ignore="GoogleAppIndexingWarning">
-
         <activity android:name=".ImageSelectorDemoMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,21 +34,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
         <activity
             android:name="com.sinothk.image.selector.PhotoPickerActivity"
             android:configChanges="keyboardHidden|locale"
             android:screenOrientation="portrait"
             android:theme="@style/ThemeSelectorImage" />
-
         <activity
             android:name="com.sinothk.image.selector.PhotoPreviewActivity"
             android:configChanges="keyboardHidden|locale"
             android:screenOrientation="portrait"
             android:theme="@style/ThemeSelectorImage" />
 
-        <!--在这里定义共享信息-->
+        <!-- 在这里定义共享信息 -->
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="${applicationId}.fileProvider"
@@ -58,6 +55,13 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+
+        <activity
+            android:name=".ImageListShowDemoActivity"
+            android:configChanges="keyboardHidden|locale"
+            android:screenOrientation="portrait"
+            android:theme="@style/ThemeSelectorImage" />
+
     </application>
 
 </manifest>

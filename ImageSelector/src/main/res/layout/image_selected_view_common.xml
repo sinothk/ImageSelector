@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/dp_80"
+    android:layout_height="@dimen/dp_80">
+
+    <ImageView
+        android:id="@+id/iv_album_selected"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/dp_3"
+        android:background="@color/red"
+        android:scaleType="centerCrop" />
+
+    <ImageView
+        android:id="@+id/delImgBtn"
+        android:layout_width="@dimen/dp_20"
+        android:layout_height="@dimen/dp_20"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/img_selected_del" />
+
+</RelativeLayout>
