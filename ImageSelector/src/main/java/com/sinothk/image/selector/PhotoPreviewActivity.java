@@ -120,7 +120,6 @@ public class PhotoPreviewActivity extends AppCompatActivity implements PhotoPage
         });
 
         TextView backTv = (TextView) findViewById(R.id.backTv);
-        backTv.setVisibility(View.GONE);
 
         titleBarTxt = (TextView) findViewById(R.id.titleBarTxt);
         titleBarTxt.setText("预览");
