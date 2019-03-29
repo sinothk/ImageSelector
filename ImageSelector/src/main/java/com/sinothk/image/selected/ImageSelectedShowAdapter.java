@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.sinothk.image.selector.R;
@@ -58,8 +57,9 @@ public class ImageSelectedShowAdapter extends RecyclerView.Adapter<RecyclerView.
             if (position >= mMaxAlbum) {
                 itemViewHolderAdd.itemView.setVisibility(View.GONE);
             } else {
-                itemViewHolderAdd.tvNum.setText(position + "/" + mMaxAlbum);
+//                itemViewHolderAdd.tvNum.setText(position + "/" + mMaxAlbum);
                 itemViewHolderAdd.itemView.setVisibility(View.VISIBLE);
+
                 itemView = ((ItemViewHolderAdd) holder).itemView;
             }
 
@@ -117,11 +117,11 @@ public class ImageSelectedShowAdapter extends RecyclerView.Adapter<RecyclerView.
     }
 
     public static class ItemViewHolderAdd extends RecyclerView.ViewHolder {
-        private TextView tvNum;
+//        private TextView tvNum;
 
         public ItemViewHolderAdd(View itemView) {
             super(itemView);
-            tvNum = itemView.findViewById(R.id.tv_album_selected_num);
+//            tvNum = itemView.findViewById(R.id.tv_album_selected_num);
         }
     }
 

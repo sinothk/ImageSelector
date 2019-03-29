@@ -16,13 +16,16 @@ import java.util.ArrayList;
 
 /**
  * 类描述：
- * 创建人：田浩宏
  * 创建时间：2017/8/21 0021 上午 0:29
  * 修改人：
  * 修改时间：
  * 修改备注：
  */
 
+/**
+ * 使用PhotoPreviewActivity代替
+ */
+@Deprecated
 public class ImagePreviewActivity extends AppCompatActivity implements PhotoPagerAdapter.PhotoViewClickListener {
 
     public static final String EXTRA_PHOTOS = "extra_photos";

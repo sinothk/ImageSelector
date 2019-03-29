@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="@dimen/dp_80"
     android:layout_height="@dimen/dp_80"
-    android:padding="@dimen/dp_3">
+    android:padding="@dimen/dp_3"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/tv_album_selected_num"
@@ -11,6 +12,12 @@
         android:background="@color/red"
         android:gravity="center"
         android:text="+"
+        android:visibility="gone"
         android:textSize="35sp" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:src="@drawable/img_select_add"
+        android:layout_height="match_parent" />
 
 </LinearLayout>
