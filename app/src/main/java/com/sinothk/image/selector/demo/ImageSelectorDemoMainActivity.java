@@ -38,12 +38,7 @@ public class ImageSelectorDemoMainActivity extends AppCompatActivity {
         findViewById(R.id.singleSelectedBtn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PhotoPickerIntent intent = new PhotoPickerIntent(ImageSelectorDemoMainActivity.this);
-                intent.setSelectModel(SelectModel.SINGLE);
-                intent.setSelectedPaths(path);
-                intent.setShowCamera(true, "com.sinothk.image.selector.demo"); // 是否显示拍照， 默认false
-
-                startActivityForResult(intent, REQUEST_SINGLE_CODE);
+                startActivity(new Intent(ImageSelectorDemoMainActivity.this, ImageSelectorSingleDemoMainActivity.class));
             }
         });
 

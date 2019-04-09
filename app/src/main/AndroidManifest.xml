@@ -62,6 +62,9 @@
             android:screenOrientation="portrait"
             android:theme="@style/ThemeSelectorImage" />
 
+        <activity android:name=".ImageSelectorSingleDemoMainActivity" />
+
+
     </application>
 
 </manifest>
