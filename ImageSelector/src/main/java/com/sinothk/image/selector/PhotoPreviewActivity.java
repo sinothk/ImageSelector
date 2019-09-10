@@ -12,7 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.sinothk.comm.utils.StatusBarUtil;
+import com.sinothk.android.utils.StatusBarUtil;
 import com.sinothk.image.selector.widget.ViewPagerFixed;
 
 import java.util.ArrayList;

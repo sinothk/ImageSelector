@@ -27,8 +27,6 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
-    implementation 'com.github.sinothk:CommUnit:3.2.1024'
-
 //    implementation 'com.github.sinothk:ImageSelector:1.0.0104'
     implementation project(':ImageSelector')
 

@@ -10,7 +10,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
-import com.sinothk.comm.utils.StatusBarUtil;
 import com.sinothk.image.selected.ImageSelectedShowAdapter;
 import com.sinothk.image.selector.PhotoPickerActivity;
 import com.sinothk.image.selector.PhotoPreviewActivity;
@@ -30,7 +29,6 @@ public class ImageSelectorDemoMainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_image_selector_demo);
-        StatusBarUtil.transparencyBar(this);
 
         result1 = (TextView) findViewById(R.id.result1);
         result2 = (TextView) findViewById(R.id.result2);

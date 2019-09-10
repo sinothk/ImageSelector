@@ -1,21 +1,13 @@
 package com.sinothk.image.selector.demo;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.sinothk.comm.utils.StatusBarUtil;
-import com.sinothk.image.selected.ImageSelectedShowAdapter;
 import com.sinothk.image.selector.PhotoPickerActivity;
-import com.sinothk.image.selector.PhotoPreviewActivity;
 import com.sinothk.image.selector.SelectModel;
 import com.sinothk.image.selector.intent.PhotoPickerIntent;
 
@@ -32,7 +24,6 @@ public class ImageSelectorSingleDemoMainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_image_selector_single_demo);
-        StatusBarUtil.transparencyBar(this);
 
         imgIv = findViewById(R.id.imgIv);
 
@@ -61,7 +52,7 @@ public class ImageSelectorSingleDemoMainActivity extends AppCompatActivity {
                 // 单图
                 path = data.getStringArrayListExtra(PhotoPickerActivity.EXTRA_RESULT);
                 if (path != null) {
-                    Glide.with(this).load(new File(path.get(0))).placeholder(R.drawable.comm_default_nor_avatar).into(imgIv);
+                    Glide.with(this).load(new File(path.get(0))).placeholder(R.drawable.add_img).into(imgIv);
                 }
             }
 //            else if (requestCode == REQUEST_MUTILATE_CODE) {
