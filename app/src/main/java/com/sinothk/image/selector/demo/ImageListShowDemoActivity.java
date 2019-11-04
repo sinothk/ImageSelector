@@ -1,7 +1,8 @@
 package com.sinothk.image.selector.demo;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.sinothk.image.selector.PhotoPreviewActivity;
 import com.sinothk.image.show.AppNineGridAdapter;

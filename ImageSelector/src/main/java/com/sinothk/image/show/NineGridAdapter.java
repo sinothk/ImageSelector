@@ -1,7 +1,8 @@
 package com.sinothk.image.show;
 
-import android.support.annotation.LayoutRes;
 import android.view.View;
+
+import androidx.annotation.LayoutRes;
 
 import java.util.ArrayList;
 
