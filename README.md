@@ -13,7 +13,8 @@
   ## Step 2. Add the dependency
 
     dependencies {
-            implementation 'com.github.sinothk:ImageSelector:3.0.0329'
+            // implementation 'com.github.sinothk:ImageSelector:3.0.0329'
+            implementation 'com.github.sinothk:ImageSelector:5.x.1105'
     }
 
 # 使用
