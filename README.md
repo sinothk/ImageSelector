@@ -19,6 +19,7 @@
 
 # 使用
   ## 预览：
+  
       PhotoPreviewActivity.start(Activity mActivity, int position, ArrayList<String> urlOrFilePathList,int    PhotoPreviewActivity.REQUEST_PREVIEW);
   
   ## 图片选择：
@@ -39,7 +40,9 @@
 
         startActivityForResult(intent, REQUEST_MUTILATE_CODE);
         
-    返回：onActivityResult(int requestCode, int resultCode, Intent data)
+    返回：
+    
+    onActivityResult(int requestCode, int resultCode, Intent data)
         if (resultCode == RESULT_OK) {
             //图片选择返回
             if (requestCode == REQUEST_SINGLE_CODE) {
@@ -74,6 +77,7 @@
         }
 
 # 选后展示：
+
         mRvAlbumSelected = this.findViewById(R.id.mRvAlbumSelected);
 
         mAlbumSelectedShowAdapter = new ImageSelectedShowAdapter(this, path, 6);
