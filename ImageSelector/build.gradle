@@ -36,5 +36,5 @@ dependencies {
     implementation 'com.gitee.sinothk:AndroidRes:3.x.0326'
     implementation 'com.gitee.sinothk:AndroidUtils:1.x.0326'
 
-    implementation 'com.github.bumptech.glide:glide:3.7.0'
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
 }

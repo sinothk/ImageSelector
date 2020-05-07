@@ -62,7 +62,6 @@ public class PhotoPagerAdapter extends PagerAdapter {
                 .load(uri)
                 .placeholder(R.mipmap.default_error)
                 .error(R.mipmap.default_error)
-                .crossFade()
                 .into(imageView);
 
 //        RequestOptions options = new RequestOptions()
