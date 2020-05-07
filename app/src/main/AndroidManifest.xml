@@ -27,6 +27,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme4ImageSelector"
         tools:ignore="GoogleAppIndexingWarning">
+
         <activity android:name=".ImageSelectorDemoMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

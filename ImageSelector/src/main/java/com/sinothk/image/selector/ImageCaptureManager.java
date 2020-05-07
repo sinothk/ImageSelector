@@ -1,5 +1,6 @@
 package com.sinothk.image.selector;
 
+import android.app.Activity;
 import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
@@ -35,13 +36,33 @@ public class ImageCaptureManager {
 
     private String mCurrentPhotoPath;
     private Context mContext;
+    private Activity currActivity;
 
-
-    public ImageCaptureManager(Context mContext,String currAppPackage) {
+    public ImageCaptureManager(Context mContext, String currAppPackage) {
         this.mContext = mContext;
         this.currAppPackage = currAppPackage;
     }
+
+    public ImageCaptureManager(Activity currActivity) {
+        this.currActivity = currActivity;
+    }
+
+
     private File createImageFile() throws IOException {
+
+//        // Create an image file name
+//        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+//        String imageFileName = "JPEG_" + timeStamp + "_";
+//        File storageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+//        if (!storageDir.exists()) {
+//            if (!storageDir.mkdir()) {
+//                throw new IOException();
+//            }
+//        }
+//        File image = new File(storageDir, imageFileName + ".jpg");
+//        // Save a file: path for use with ACTION_VIEW intents
+//        mCurrentPhotoPath = image.getAbsolutePath();
+//        return image;
 
         // Create an image file name
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
@@ -66,32 +87,37 @@ public class ImageCaptureManager {
             // Create the File where the photo should go
             File photoFile = createImageFile();
             // Continue only if the File was successfully created
-            if (photoFile != null) {
-                Log.d("THH", "dispatchTakePictureIntent: ......");
+            Log.d("THH", "dispatchTakePictureIntent: ......");
 
 //                Uri contentUri = FileProvider.getUriForFile(mContext, "com.hy.jy.fileprovider", photoFile);
 
-                String authority = currAppPackage + ".fileProvider";//BuildConfig.APPLICATION_ID + //com.sinothk.photoDemo
+            Uri contentUri = null;
 
-                Uri contentUri = FileProvider.getUriForFile(mContext, authority, photoFile);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                if (currActivity != null) {
+                    contentUri = FileProvider.getUriForFile(currActivity, currActivity.getPackageName() + ".fileProvider", photoFile);
+                } else if (mContext != null) {
+                    String authority = currAppPackage + ".fileProvider";//BuildConfig.APPLICATION_ID + //com.sinothk.photoDemo
+                    contentUri = FileProvider.getUriForFile(mContext, authority, photoFile);
+                }
+            } else {
+                contentUri = Uri.fromFile(photoFile);
+            }
 
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    takePictureIntent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
-                } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                    ClipData clip = ClipData.newUri(mContext.getContentResolver(), "A photo", contentUri);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                takePictureIntent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+            } else {
+                if (currActivity != null) {
+                    ClipData clip = ClipData.newUri(currActivity.getContentResolver(), "A photo", contentUri);
                     takePictureIntent.setClipData(clip);
                     takePictureIntent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
                 } else {
-                    List<ResolveInfo> resInfoList =
-                            mContext.getPackageManager()
-                                    .queryIntentActivities(takePictureIntent, PackageManager.MATCH_DEFAULT_ONLY);
-                    for (ResolveInfo resolveInfo : resInfoList) {
-                        String packageName = resolveInfo.activityInfo.packageName;
-                        mContext.grantUriPermission(packageName, contentUri, Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
-                    }
+                    ClipData clip = ClipData.newUri(mContext.getContentResolver(), "A photo", contentUri);
+                    takePictureIntent.setClipData(clip);
+                    takePictureIntent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
                 }
-                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, contentUri);
             }
+            takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, contentUri);
         }
         return takePictureIntent;
     }
