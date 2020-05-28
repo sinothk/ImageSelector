@@ -19,18 +19,18 @@
         <RelativeLayout
             android:id="@+id/titleBarLeft"
             android:layout_width="wrap_content"
-            android:layout_height="48dp"
+            android:layout_height="@dimen/dp_48"
             android:layout_centerVertical="true"
             android:visibility="visible">
 
             <ImageView
                 android:id="@+id/backBtn"
-                android:layout_width="32dp"
-                android:layout_height="48dp"
+                android:layout_width="@dimen/dp_22"
+                android:layout_height="@dimen/dp_22"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
                 android:background="@color/app_theme_style_color"
-                android:src="@drawable/back_icon"
+                android:src="@drawable/ms_icon_back"
                 android:visibility="visible" />
 
             <TextView
@@ -38,21 +38,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_toRightOf="@id/backBtn"
+                android:layout_toEndOf="@id/backBtn"
                 android:paddingEnd="6dp"
                 android:text="返回"
                 android:textColor="#FFFFFF"
                 android:textSize="@dimen/sp_14"
-                android:visibility="visible" />
+                android:visibility="visible"
+                tools:ignore="RtlSymmetry" />
 
         </RelativeLayout>
 
         <LinearLayout
             android:id="@+id/rightLayout"
             android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_centerVertical="true"
+            android:layout_height="@dimen/dp_48"
             android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
             android:visibility="visible">
 
             <ImageView
@@ -68,10 +69,10 @@
             <TextView
                 android:id="@+id/completeTv"
                 android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:layout_alignParentEnd="true"
+                android:layout_height="@dimen/dp_48"
                 android:background="@color/app_theme_style_color"
                 android:clickable="true"
+                android:focusable="true"
                 android:gravity="center"
                 android:padding="10dp"
                 android:text="完成(9)"
@@ -86,9 +87,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
             android:ellipsize="middle"
             android:gravity="center"
-            android:layout_centerVertical="true"
             android:singleLine="true"
             android:textColor="#FFFFFF"
             android:textSize="@dimen/sp_17"
