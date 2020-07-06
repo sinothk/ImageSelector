@@ -5,16 +5,16 @@ package com.sinothk.image.selected;
  *  创建:  梁玉涛 2019/3/29 on 11:52
  *  项目:  WuMinAndroid
  *  描述:
- *  更新:
+ *  更新: 2020年7月6日 10:11:40
  * <pre>
  */
 public class ImgSelectEntity {
 
     private String id;
     private String bizId;
-
     private String url;
     private String filePath;
+    private String fileName;
 
     public String getId() {
         return id;
@@ -46,5 +46,13 @@ public class ImgSelectEntity {
 
     public void setFilePath(String filePath) {
         this.filePath = filePath;
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
     }
 }
